@@ -27,6 +27,18 @@ export default function LifeCounter() {
       >
         -
       </button>
+      <button
+        className="btn-blue-pill"
+        onClick={() => setLifeTotal(lifeTotal * 2)}
+      >
+        Double
+      </button>
+      <button
+        className="btn-blue-pill"
+        onClick={() => setLifeTotal(lifeTotal / 2)}
+      >
+        Halve
+      </button>
       <form onSubmit={handleLifeTotal}>
         <input
           type="number"
