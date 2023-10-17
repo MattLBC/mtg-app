@@ -5,7 +5,7 @@ export default function LifeCounter() {
   const [lifeTotal, setLifeTotal] = useState<number>(40);
   const [newLifeTotal, setNewLifeTotal] = useState<string>("");
 
-  const handleLifeTotal = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLifeTotal = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLifeTotal(Number(newLifeTotal));
     setNewLifeTotal("");
