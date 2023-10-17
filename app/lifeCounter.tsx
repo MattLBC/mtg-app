@@ -7,7 +7,15 @@ export default function LifeCounter() {
 
   const handleLifeTotal = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setLifeTotal(Number(newLifeTotal));
+    if (newLifeTotal === "") {
+      return;
+    } else if (document.activeElement.value === "set") {
+      setLifeTotal(Number(newLifeTotal));
+    } else if (document.activeElement.value === "remove") {
+      setLifeTotal(lifeTotal - Number(newLifeTotal));
+    } else if (document.activeElement.value === "add") {
+      setLifeTotal(lifeTotal + Number(newLifeTotal));
+    }
     setNewLifeTotal("");
   };
 
@@ -35,7 +43,7 @@ export default function LifeCounter() {
       </button>
       <button
         className="btn-blue-pill"
-        onClick={() => setLifeTotal(lifeTotal / 2)}
+        onClick={() => setLifeTotal(Math.round(lifeTotal / 2))}
       >
         Halve
       </button>
@@ -45,13 +53,19 @@ export default function LifeCounter() {
           min="0"
           step="1"
           name="lifeTotalSet"
-          onChange={event => setNewLifeTotal(event.target.value)}
+          onChange={(event) => setNewLifeTotal(event.target.value)}
           value={newLifeTotal}
-          placeholder="Set Life Total"
+          placeholder="Change Life Total"
         ></input>
-        <br/>
-        <button type="submit" className="btn-blue-pill">
+        <br />
+        <button type="submit" name="submit" value="set" className="btn-blue-pill">
           Set
+        </button>
+        <button type="submit" name="submit" value="add" className="btn-blue-pill">
+          Add
+        </button>
+        <button type="submit" name="submit" value="remove" className="btn-blue-pill">
+          Remove
         </button>
       </form>
     </div>
