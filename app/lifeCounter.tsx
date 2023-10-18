@@ -58,13 +58,28 @@ export default function LifeCounter() {
           placeholder="Change Life Total"
         ></input>
         <br />
-        <button type="submit" name="submit" value="set" className="btn-blue-pill">
+        <button
+          type="submit"
+          name="submit"
+          value="set"
+          className="btn-blue-pill"
+        >
           Set
         </button>
-        <button type="submit" name="submit" value="add" className="btn-blue-pill">
+        <button
+          type="submit"
+          name="submit"
+          value="add"
+          className="btn-blue-pill"
+        >
           Add
         </button>
-        <button type="submit" name="submit" value="remove" className="btn-blue-pill">
+        <button
+          type="submit"
+          name="submit"
+          value="remove"
+          className="btn-blue-pill"
+        >
           Remove
         </button>
       </form>
