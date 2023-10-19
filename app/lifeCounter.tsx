@@ -1,4 +1,5 @@
 "use client";
+import { AnyAaaaRecord } from "dns";
 import React, { useState } from "react";
 
 export default function LifeCounter() {

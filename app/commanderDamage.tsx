@@ -9,7 +9,7 @@ export default function CommanderDamage() {
     if (event.button === 0) {
       setCommanderDamage(commanderDamage + 1);
     } else {
-      setCommanderDamage(commanderDamage - 1);
+      commanderDamage <= 0 ? null : setCommanderDamage(commanderDamage - 1);
     }
   };
 
