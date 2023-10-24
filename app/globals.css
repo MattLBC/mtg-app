@@ -8,6 +8,10 @@
   --background-end-rgb: 0, 0, 0;
 }
 
+::placeholder {
+  text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 0, 0, 0;
@@ -29,4 +33,35 @@ body {
 .btn-blue-pill {
   margin: 2px;
   @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full;
+}
+
+.life-counter {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  border: 3px solid black;
+}
+.container-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-submit-box {
+  text-align: center;
+  display: grid;
+  margin: auto;
+}
+
+.container-buttons-life {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.life-total-text {
+  font-size: 5rem;
+  color: red;
 }

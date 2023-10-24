@@ -1,5 +1,4 @@
 "use client";
-import { AnyAaaaRecord } from "dns";
 import React, { useState } from "react";
 
 export default function LifeCounter() {
@@ -21,35 +20,39 @@ export default function LifeCounter() {
   };
 
   return (
-    <div>
-      <h1>LIFE COUNTER</h1>
-      <h1>{lifeTotal}</h1>
-      <button
-        className="btn-blue-pill"
-        onClick={() => setLifeTotal(lifeTotal + 1)}
-      >
-        +
-      </button>
-      <button
-        className="btn-blue-pill"
-        onClick={() => setLifeTotal(lifeTotal - 1)}
-      >
-        -
-      </button>
-      <button
-        className="btn-blue-pill"
-        onClick={() => setLifeTotal(lifeTotal * 2)}
-      >
-        Double
-      </button>
-      <button
-        className="btn-blue-pill"
-        onClick={() => setLifeTotal(Math.round(lifeTotal / 2))}
-      >
-        Halve
-      </button>
+    <div className="life-counter">
+      <div className="container-buttons-life">
+        <button
+          className="btn-blue-pill"
+          onClick={() => setLifeTotal(lifeTotal + 1)}
+        >
+          +
+        </button>
+        <h1 className="life-total-text">{lifeTotal}</h1>
+        <button
+          className="btn-blue-pill"
+          onClick={() => setLifeTotal(lifeTotal - 1)}
+        >
+          -
+        </button>
+      </div>
+      <div className="container-buttons">
+        <button
+          className="btn-blue-pill"
+          onClick={() => setLifeTotal(lifeTotal * 2)}
+        >
+          Double
+        </button>
+        <button
+          className="btn-blue-pill"
+          onClick={() => setLifeTotal(Math.round(lifeTotal / 2))}
+        >
+          Halve
+        </button>
+      </div>
       <form onSubmit={handleLifeTotal}>
         <input
+          className="form-submit-box"
           type="number"
           min="0"
           step="1"
@@ -58,31 +61,32 @@ export default function LifeCounter() {
           value={newLifeTotal}
           placeholder="Change Life Total"
         ></input>
-        <br />
-        <button
-          type="submit"
-          name="submit"
-          value="set"
-          className="btn-blue-pill"
-        >
-          Set
-        </button>
-        <button
-          type="submit"
-          name="submit"
-          value="add"
-          className="btn-blue-pill"
-        >
-          Add
-        </button>
-        <button
-          type="submit"
-          name="submit"
-          value="remove"
-          className="btn-blue-pill"
-        >
-          Remove
-        </button>
+        <div className="container-buttons">
+          <button
+            type="submit"
+            name="submit"
+            value="set"
+            className="btn-blue-pill"
+          >
+            Set
+          </button>
+          <button
+            type="submit"
+            name="submit"
+            value="add"
+            className="btn-blue-pill"
+          >
+            Add
+          </button>
+          <button
+            type="submit"
+            name="submit"
+            value="remove"
+            className="btn-blue-pill"
+          >
+            Remove
+          </button>
+        </div>
       </form>
     </div>
   );
