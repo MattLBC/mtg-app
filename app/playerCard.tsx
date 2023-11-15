@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import LifeCounter from "./lifeCounter";
 import CommanderDamage from "./commanderDamage";
 
-export default function PlayerCard() {
-  const [playerName, setPlayerName] = useState<string>("Player Name");
+interface PlayerCardProps {
+  playerNumber: number;
+}
+
+export default function PlayerCard({ playerNumber }: PlayerCardProps) {
+  const [playerName, setPlayerName] = useState<string>(
+    `Player ${playerNumber}`
+  );
   const [newPlayerName, setNewPlayerName] = useState<string>("");
   const [showNameForm, setShowNameForm] = useState<boolean>(false);
 
