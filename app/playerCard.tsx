@@ -27,7 +27,7 @@ export default function PlayerCard() {
       <h1>{playerName}</h1>
 
       {showNameForm ? (
-        <form onSubmit={handlePlayerName} id="playerNameForm">
+        <form onSubmit={handlePlayerName}>
           <input
             type="text"
             value={newPlayerName}
