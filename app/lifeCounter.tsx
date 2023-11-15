@@ -7,15 +7,33 @@ export default function LifeCounter() {
 
   const handleLifeTotal = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const activeElement = document.activeElement as HTMLButtonElement | null;
+
+    if (!activeElement) {
+      return;
+    }
+
+    const buttonValue = activeElement.value;
+
     if (newLifeTotal === "") {
       return;
-    } else if (document.activeElement.value === "set") {
-      setLifeTotal(Number(newLifeTotal));
-    } else if (document.activeElement.value === "remove") {
-      setLifeTotal(lifeTotal - Number(newLifeTotal));
-    } else if (document.activeElement.value === "add") {
-      setLifeTotal(lifeTotal + Number(newLifeTotal));
     }
+
+    switch (buttonValue) {
+      case "set":
+        setLifeTotal(Number(newLifeTotal));
+        break;
+      case "remove":
+        setLifeTotal(lifeTotal - Number(newLifeTotal));
+        break;
+      case "add":
+        setLifeTotal(lifeTotal + Number(newLifeTotal));
+        break;
+      default:
+        break;
+    }
+
     setNewLifeTotal("");
   };
 
