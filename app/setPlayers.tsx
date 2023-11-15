@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 interface SetPlayersProps {
   setPlayerNumber: React.Dispatch<React.SetStateAction<number>>;
