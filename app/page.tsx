@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import PlayerCard from "./playerCard";
 import SetPlayers from "./setPlayers";
-import logo from "./whiteLogo.png"
+import logo from "./whiteLogo.png";
 
 export default function Home() {
   const [playerNumber, setPlayerNumber] = useState<number>(0);
