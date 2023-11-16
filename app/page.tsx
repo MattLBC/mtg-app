@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import PlayerCard from "./playerCard";
 import SetPlayers from "./setPlayers";
+import logo from "./whiteLogo.png"
 
 export default function Home() {
   const [playerNumber, setPlayerNumber] = useState<number>(0);
 
   return (
     <main>
-      <h1>MAIN</h1>
+      {/* <img className="logo" src={logo.src}/> */}
       {playerNumber === 0 ? (
         <SetPlayers setPlayerNumber={setPlayerNumber} />
       ) : (

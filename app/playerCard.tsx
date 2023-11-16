@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LifeCounter from "./lifeCounter";
 import CommanderDamage from "./commanderDamage";
+import CommanderSummon from "./counterButton";
 
 interface PlayerCardProps {
   individualPlayerNumber: number;
@@ -34,33 +35,37 @@ export default function PlayerCard({
 
   return (
     <div>
-      <h1>{playerName}</h1>
-
-      {showNameForm ? (
-        <form onSubmit={handlePlayerName}>
-          <input
-            type="text"
-            value={newPlayerName}
-            placeholder="Change Name"
-            onChange={(event) => setNewPlayerName(event.target.value)}
-          ></input>
+      <div className="PlayerNameBox">
+        <h1 className="playerName">{playerName}</h1>
+        {showNameForm ? (
+          <form onSubmit={handlePlayerName}>
+            <input
+              type="text"
+              value={newPlayerName}
+              placeholder="Change Name"
+              onChange={(event) => setNewPlayerName(event.target.value)}
+            ></input>
+            <button
+              className={`playerButton${individualPlayerNumber}`}
+              type="submit"
+            >
+              Edit
+            </button>
+          </form>
+        ) : (
           <button
-            className={`playerButton${individualPlayerNumber}`}
-            type="submit"
+            onClick={() => togglePlayerNameForm()}
+            className={`playerButton${individualPlayerNumber} playerNameChange`}
           >
-            Edit
+            Change name
           </button>
-        </form>
-      ) : (
-        <button
-          onClick={() => togglePlayerNameForm()}
-          className={`playerButton${individualPlayerNumber}`}
-        >
-          Change name
-        </button>
-      )}
-      <LifeCounter individualPlayerNumber={individualPlayerNumber} />
-      <CommanderDamage totalPlayerNumber={totalPlayerNumber} />
+        )}
+      </div>
+      <div className="PlayerArea">
+        <CommanderSummon index={null} />
+        <LifeCounter individualPlayerNumber={individualPlayerNumber} />
+        <CommanderDamage totalPlayerNumber={totalPlayerNumber} />
+      </div>
     </div>
   );
 }

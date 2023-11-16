@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  background-color: #1e3439;
+  margin: 0px;
+  padding: 0px;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 0, 0, 0;
@@ -30,29 +36,44 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* .logo {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  size: 10%;
+} */
+
 button {
   margin: 2px;
   @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full;
 }
 
-.playerButton1 {
-  @apply bg-green-800;
+.setPlayerCard {
+  position: absolute;
+  top: 25%;
 }
 
-.playerButton2 {
-  @apply bg-red-700;
+.SetPlayersTitle {
+  text-align: center;
+  @apply font-mono font-extrabold text-white text-5xl;
 }
 
-.playerButton3 {
-  @apply bg-yellow-100;
+.setPlayerButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.playerButton4 {
-  @apply bg-blue-600;
+.PlayerNameBox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
 }
 
-.playerButton5 {
-  @apply bg-zinc-950;
+.playerName {
+  text-align: center;
+  @apply font-mono font-extrabold text-white text-4xl;
 }
 
 .life-counter {
@@ -61,7 +82,8 @@ button {
   margin: auto;
   width: 70%;
   padding: 10px;
-  border: 3px solid black;
+  border: 3px solid #395e66;
+  border-radius: 5%;
 }
 
 .container-buttons {
@@ -84,5 +106,42 @@ button {
 
 .life-total-text {
   font-size: 5rem;
-  color: red;
+  color: slategray;
+}
+
+.PlayerArea {
+  display: flex;
+}
+
+.CommanderDamage {
+  display: flex;
+  flex-direction: column;
+  width: 14%;
+  justify-content: center;
+  align-items: center;
+}
+
+.CommanderSummonButton {
+  flex-direction: column;
+  background-color: #395e66;
+}
+
+.playerButton1 {
+  background-color: #395e66;
+}
+
+.playerButton2 {
+  background-color: #387d7a;
+}
+
+.playerButton3 {
+  background-color: #32936f;
+}
+
+.playerButton4 {
+  background-color: #26a96c;
+}
+
+.playerButton5 {
+  background-color: #2bc016;
 }
