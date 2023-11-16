@@ -3,12 +3,16 @@ import LifeCounter from "./lifeCounter";
 import CommanderDamage from "./commanderDamage";
 
 interface PlayerCardProps {
-  playerNumber: number;
+  individualPlayerNumber: number;
+  totalPlayerNumber: number;
 }
 
-export default function PlayerCard({ playerNumber }: PlayerCardProps) {
+export default function PlayerCard({
+  individualPlayerNumber,
+  totalPlayerNumber,
+}: PlayerCardProps) {
   const [playerName, setPlayerName] = useState<string>(
-    `Player ${playerNumber}`
+    `Player ${individualPlayerNumber}`
   );
   const [newPlayerName, setNewPlayerName] = useState<string>("");
   const [showNameForm, setShowNameForm] = useState<boolean>(false);
@@ -48,7 +52,7 @@ export default function PlayerCard({ playerNumber }: PlayerCardProps) {
         <button onClick={() => togglePlayerNameForm()}>Change name</button>
       )}
       <LifeCounter />
-      <CommanderDamage />
+      <CommanderDamage totalPlayerNumber={totalPlayerNumber} />
     </div>
   );
 }

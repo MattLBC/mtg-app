@@ -1,27 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import CommanderDamageCounter from "./commanderDamageCounter";
 
-export default function CommanderDamage() {
-  const [commanderDamage, setCommanderDamage] = useState<number>(0);
+interface commanderDamageProps {
+  totalPlayerNumber: number;
+}
 
-  const commanderDamageClick = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    if (event.button === 0) {
-      setCommanderDamage(commanderDamage + 1);
-    } else {
-      commanderDamage <= 0 ? null : setCommanderDamage(commanderDamage - 1);
-    }
-  };
-
+export default function CommanderDamage({
+  totalPlayerNumber,
+}: commanderDamageProps) {
   return (
     <div>
       <h1>Commander Damage</h1>
-      <button
-        className="btn-blue-pill"
-        onClick={commanderDamageClick}
-        onContextMenu={commanderDamageClick}
-      >
-        {commanderDamage}
-      </button>
+      {Array.from({ length: totalPlayerNumber }).map((_, index) => (
+        <CommanderDamageCounter key={index}/>
+      ))}
     </div>
   );
 }

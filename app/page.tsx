@@ -13,7 +13,11 @@ export default function Home() {
         <SetPlayers setPlayerNumber={setPlayerNumber} />
       ) : (
         Array.from({ length: playerNumber }).map((_, index) => (
-          <PlayerCard key={index} playerNumber={index + 1} />
+          <PlayerCard
+            key={index}
+            individualPlayerNumber={index + 1}
+            totalPlayerNumber={playerNumber}
+          />
         ))
       )}
     </main>
