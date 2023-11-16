@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-export default function commanderDamageCounter() {
+interface commanderDamageButtonProps {
+  index: number;
+}
+
+export default function commanderDamageCounter({
+  index,
+}: commanderDamageButtonProps) {
   const [commanderDamage, setCommanderDamage] = useState<number>(0);
 
   const commanderDamageClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -14,7 +20,7 @@ export default function commanderDamageCounter() {
 
   return (
     <button
-      className="btn-blue-pill"
+      className={`playerButton${index + 1}`}
       onClick={commanderDamageClick}
       onContextMenu={commanderDamageClick}
     >

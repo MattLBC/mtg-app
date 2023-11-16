@@ -12,7 +12,7 @@ export default function CommanderDamage({
     <div>
       <h1>Commander Damage</h1>
       {Array.from({ length: totalPlayerNumber }).map((_, index) => (
-        <CommanderDamageCounter key={index}/>
+        <CommanderDamageCounter key={index} index={index}/>
       ))}
     </div>
   );

@@ -44,14 +44,22 @@ export default function PlayerCard({
             placeholder="Change Name"
             onChange={(event) => setNewPlayerName(event.target.value)}
           ></input>
-          <button className="btn-blue-pill" type="submit">
+          <button
+            className={`playerButton${individualPlayerNumber}`}
+            type="submit"
+          >
             Edit
           </button>
         </form>
       ) : (
-        <button onClick={() => togglePlayerNameForm()}>Change name</button>
+        <button
+          onClick={() => togglePlayerNameForm()}
+          className={`playerButton${individualPlayerNumber}`}
+        >
+          Change name
+        </button>
       )}
-      <LifeCounter />
+      <LifeCounter individualPlayerNumber={individualPlayerNumber} />
       <CommanderDamage totalPlayerNumber={totalPlayerNumber} />
     </div>
   );

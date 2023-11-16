@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-export default function LifeCounter() {
+interface lifeCounterProps {
+  individualPlayerNumber: number;
+}
+
+export default function LifeCounter({
+  individualPlayerNumber,
+}: lifeCounterProps) {
   const [lifeTotal, setLifeTotal] = useState<number>(40);
   const [newLifeTotal, setNewLifeTotal] = useState<string>("");
 
@@ -40,14 +46,14 @@ export default function LifeCounter() {
     <div className="life-counter">
       <div className="container-buttons-life">
         <button
-          className="btn-blue-pill"
+          className={`playerButton${individualPlayerNumber}`}
           onClick={() => setLifeTotal(lifeTotal + 1)}
         >
           +
         </button>
         <h1 className="life-total-text">{lifeTotal}</h1>
         <button
-          className="btn-blue-pill"
+          className={`playerButton${individualPlayerNumber}`}
           onClick={() => setLifeTotal(lifeTotal - 1)}
         >
           -
@@ -55,13 +61,13 @@ export default function LifeCounter() {
       </div>
       <div className="container-buttons">
         <button
-          className="btn-blue-pill"
+          className={`playerButton${individualPlayerNumber}`}
           onClick={() => setLifeTotal(lifeTotal * 2)}
         >
           Double
         </button>
         <button
-          className="btn-blue-pill"
+          className={`playerButton${individualPlayerNumber}`}
           onClick={() => setLifeTotal(Math.round(lifeTotal / 2))}
         >
           Halve
@@ -83,7 +89,7 @@ export default function LifeCounter() {
             type="submit"
             name="submit"
             value="set"
-            className="btn-blue-pill"
+            className={`playerButton${individualPlayerNumber}`}
           >
             Set
           </button>
@@ -91,7 +97,7 @@ export default function LifeCounter() {
             type="submit"
             name="submit"
             value="add"
-            className="btn-blue-pill"
+            className={`playerButton${individualPlayerNumber}`}
           >
             Add
           </button>
@@ -99,7 +105,7 @@ export default function LifeCounter() {
             type="submit"
             name="submit"
             value="remove"
-            className="btn-blue-pill"
+            className={`playerButton${individualPlayerNumber}`}
           >
             Remove
           </button>
