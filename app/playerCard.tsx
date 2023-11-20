@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import LifeCounter from "./lifeCounter";
 import CommanderDamage from "./commanderDamage";
 import CommanderSummon from "./counterButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenNib } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 interface PlayerCardProps {
   individualPlayerNumber: number;
@@ -57,7 +60,7 @@ export default function PlayerCard({
             onClick={() => togglePlayerNameForm()}
             className={`playerButton${individualPlayerNumber} playerNameChange`}
           >
-            Change name
+            <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
           </button>
         )}
       </div>
