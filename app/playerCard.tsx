@@ -3,7 +3,6 @@ import LifeCounter from "./lifeCounter";
 import CommanderDamage from "./commanderDamage";
 import CommanderSummon from "./counterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenNib } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 interface PlayerCardProps {
@@ -52,7 +51,7 @@ export default function PlayerCard({
               className={`playerButton${individualPlayerNumber}`}
               type="submit"
             >
-              Edit
+              <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
             </button>
           </form>
         ) : (
