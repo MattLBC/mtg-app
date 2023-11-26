@@ -58,7 +58,7 @@ export default function PlayerCard({
         <h1 className="playerName">{playerName}</h1>
         <button
           onClick={() => togglePlayerNameForm()}
-          className={`playerButton${individualPlayerNumber} playerNameChange dropdown`}
+          className={`playerButton${individualPlayerNumber} playerNameChangeButton dropdown`}
         >
           <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
         </button>
