@@ -18,29 +18,38 @@ export default function PlayerCard({
     `Player ${individualPlayerNumber}`
   );
   const [newPlayerName, setNewPlayerName] = useState<string>("");
-  const [showNameForm, setShowNameForm] = useState<boolean>(false);
 
   const handlePlayerName = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (newPlayerName === "") {
-      setShowNameForm(false);
+      togglePlayerNameForm();
       return;
     }
     setPlayerName(newPlayerName);
     setNewPlayerName("");
-    setShowNameForm(false);
+    togglePlayerNameForm();
   };
 
   function togglePlayerNameForm() {
-    setShowNameForm(!showNameForm);
-  }
+    const playerNameForm = document.getElementById(
+      `playerNameForm${individualPlayerNumber}`
+    );
 
-  function showPlayerNameInput() {
-    if (document.getElementById(`playerNameForm${individualPlayerNumber}`).style.display === "block") {
-      document.getElementById(`playerNameForm${individualPlayerNumber}`).style.display = "none";
-      return;
+    if (playerNameForm) {
+      if (playerNameForm.style.display === "block") {
+        playerNameForm.style.display = "none";
+      } else {
+        playerNameForm.style.display = "block";
+        const playerNameFormInput = document.getElementById(
+          `playerNameFormInput${individualPlayerNumber}`
+        );
+        if (playerNameFormInput) {
+          playerNameFormInput.focus();
+        }
+      }
+    } else {
+      console.error("Element not found.");
     }
-    document.getElementById(`playerNameForm${individualPlayerNumber}`).style.display = "block";
   }
 
   return (
@@ -48,7 +57,7 @@ export default function PlayerCard({
       <div className="PlayerNameBox">
         <h1 className="playerName">{playerName}</h1>
         <button
-          onClick={() => showPlayerNameInput()}
+          onClick={() => togglePlayerNameForm()}
           className={`playerButton${individualPlayerNumber} playerNameChange dropdown`}
         >
           <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
@@ -61,6 +70,7 @@ export default function PlayerCard({
           <input
             type="text"
             value={newPlayerName}
+            id={`playerNameFormInput${individualPlayerNumber}`}
             placeholder="Change Name"
             onChange={(event) => setNewPlayerName(event.target.value)}
           ></input>
@@ -71,30 +81,6 @@ export default function PlayerCard({
             <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
           </button>
         </form>
-
-        {/* {showNameForm ? (
-          <form onSubmit={handlePlayerName}>
-            <input
-              type="text"
-              value={newPlayerName}
-              placeholder="Change Name"
-              onChange={(event) => setNewPlayerName(event.target.value)}
-            ></input>
-            <button
-              className={`playerButton${individualPlayerNumber}`}
-              type="submit"
-            >
-              <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
-            </button>
-          </form>
-        ) : (
-          <button
-            onClick={() => togglePlayerNameForm()}
-            className={`playerButton${individualPlayerNumber} playerNameChange dropdown`}
-          >
-            <FontAwesomeIcon icon={faPencil} className="faButtonIcon" />
-          </button>
-        )} */}
       </div>
       <div className="PlayerArea">
         <CommanderSummon index={null} />
